@@ -1,0 +1,15 @@
+vim.g.mapleader = " "
+
+vim.keymap.set("n", "<leader>mm", ":Mason<CR>", { desc = "Open Mason" })
+vim.keymap.set("n", "<leader>u", ":undo<CR>", { desc = "Undo" })
+vim.keymap.set("n", "<leader>r", ":redo<CR>", { desc = "Redo" })
+vim.keymap.set("n", "<leader>so", ":source<CR>", { desc = "Source" })
+vim.keymap.set("n", "<leader>yc", ":%y+<CR>", { desc = "Yank all to clip" })
+vim.keymap.set("n", "<leader>yy", ":%y<CR>", { desc = " Yank all to" })
+vim.keymap.set("n", "<leader>dc", ":%d+<CR>", { desc = "Cut all to clip" })
+vim.keymap.set("n", "<leader>dd", ":%d<CR>", { desc = "Cut all" })
+vim.keymap.set("n", "<leader>cx", function()
+	local file = vim.fn.expand("%")
+	vim.fn.system("chmod +x " .. file)
+	vim.notify("Made executable: " .. file, vim.log.levels.INFO)
+end, { desc = "Make file executable" })
